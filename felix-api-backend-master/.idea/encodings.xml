@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/felix-api-backend/api-admin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/felix-api-backend/api-admin/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/felix-api-backend/api-client-sdk/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/felix-api-backend/api-client-sdk/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/felix-api-backend/api-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/felix-api-backend/api-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/felix-api-backend/api-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/felix-api-backend/api-interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/felix-api-backend/api-interface/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/felix-api-backend/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/felix-api-backend/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/felix-api-backend-master/felix-api-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/felix-api-backend-master/felix-api-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/felix-api-backend-master/felix-api-interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/felix-api-backend-master/felix-client-sdk/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/felix-api-backend-master/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/felix-api-backend-master/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

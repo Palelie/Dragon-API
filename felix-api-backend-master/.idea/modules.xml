@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/felix-api-backend/api-admin/api-admin.iml" filepath="$PROJECT_DIR$/felix-api-backend/api-admin/api-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/felix-api-backend/api-client-sdk/api-client-sdk.iml" filepath="$PROJECT_DIR$/felix-api-backend/api-client-sdk/api-client-sdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/felix-api-backend/api-gateway/api-gateway.iml" filepath="$PROJECT_DIR$/felix-api-backend/api-gateway/api-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/felix-api-backend/api-interface/api-interface.iml" filepath="$PROJECT_DIR$/felix-api-backend/api-interface/api-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/felix-api-backend/felix-api-backend.iml" filepath="$PROJECT_DIR$/felix-api-backend/felix-api-backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/felix-api-backend-master.iml" filepath="$PROJECT_DIR$/.idea/felix-api-backend-master.iml" />
+    </modules>
+  </component>
+</project>

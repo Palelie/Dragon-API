@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/felix-api-backend-master/pom.xml" />
+        <option value="$PROJECT_DIR$/felix-api-backend-master/felix-client-sdk/pom.xml" />
+        <option value="$PROJECT_DIR$/felix-api-backend/api-common/pom.xml" />
+        <option value="$PROJECT_DIR$/felix-api-backend/api-admin/pom.xml" />
+        <option value="$PROJECT_DIR$/felix-api-backend/api-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/felix-api-backend/felix-client-sdk/pom.xml" />
+        <option value="$PROJECT_DIR$/felix-api-backend/api-interface/pom.xml" />
+        <option value="$PROJECT_DIR$/felix-api-backend/pom.xml" />
+        <option value="$PROJECT_DIR$/felix-api-backend/api-client-sdk/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="corretto-1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
