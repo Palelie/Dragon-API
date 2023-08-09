@@ -11,6 +11,7 @@
         <module>api-gateway</module>
         <module>api-interface</module>
         <module>api-common</module>
+        <module>api-client-sdk</module>
     </modules>
 
     <parent>

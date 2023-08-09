@@ -84,9 +84,9 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         ServerHttpResponse response = exchange.getResponse();
 
         // 2. 黑白名单
-        if (!IP_WHITE_LIST.contains(IP_ADDRESS)) {
-            return handleNoAuth(response);
-        }
+//        if (!IP_WHITE_LIST.contains(IP_ADDRESS)) {
+//            return handleNoAuth(response);
+//        }
         // 3. 用户鉴权 （判断 accessKey 和 secretKey 是否合法）
         HttpHeaders headers = request.getHeaders();
         String accessKey = headers.getFirst("accessKey");

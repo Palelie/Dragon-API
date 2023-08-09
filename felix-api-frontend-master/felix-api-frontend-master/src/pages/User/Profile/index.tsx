@@ -177,8 +177,8 @@ const Profile: React.FC = () => {
                                     name="file"
                                     listType="picture-circle"
                                     showUploadList={false}
-                                    //action="http://124.70.63.241:8101/api/file/upload"
-                                    action="http://localhost:8101/api/file/upload"
+                                    action="http://123.60.212.37:8101/api/file/upload"
+                                    // action="http://localhost:8101/api/file/upload"
                                     beforeUpload={beforeUpload}
                                     onChange={handleChange}
                                 >

@@ -19,7 +19,7 @@ public class CorsConfig implements WebMvcConfigurer {
                 .allowCredentials(true)
                 // 放行哪些域名（必须用 patterns，否则 * 会和 allowCredentials 冲突）
                 .allowedOriginPatterns("*")
-//                .allowedOrigins("http://124.70.63.241:8000","http://localhost:8000", "http://127.0.0.1:8000")
+//                .allowedOrigins("http://123.60.212.37:8000","http://localhost:8000", "http://127.0.0.1:8000")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .maxAge(3600)

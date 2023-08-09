@@ -12,6 +12,7 @@
     <artifactId>api-client-sdk</artifactId>
     <version>0.0.1</version>
     <name>api-client-sdk</name>
+    <packaging>jar</packaging>
     <description>api-client-sdk</description>
     <properties>
         <java.version>1.8</java.version>

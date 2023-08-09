@@ -5,6 +5,7 @@ import cn.hutool.core.util.RandomUtil;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.json.JSONUtil;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -18,7 +19,7 @@ import static cn.felix.clientsdk.utils.SignUtils.getSign;
  */
 public class ApiClient {
 
-    public static String GATEWAY_HOST = "http://localhost:8090";
+    public static String GATEWAY_HOST;
 
 
     private String accessKey;
