@@ -4,10 +4,11 @@
     （点击封面即可跳转）
 </div>
 <p align="center">
-  <a href="http://123.60.212.37/profile" target="_bl">
+  <a target="_blank" href="http://123.60.212.37/profile">
     <img  src="https://pic.imgdb.cn/item/64d368ae1ddac507cc037d23.png">
   </a>
 </p>
+
 
 
 
