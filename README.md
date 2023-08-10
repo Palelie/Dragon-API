@@ -1,13 +1,13 @@
 <h1 align="center">Dragon API</h1>
 <div align="center">
-史上最好用的免费API接口平台<br>
-    （点击封面即可跳转）
+    （点击下图封面即可跳转到在线平台）
 </div>
 <p align="center">
   <a target="_blank" href="http://123.60.212.37/profile">
     <img  src="./img/cover.jpg">
   </a>
 </p>
+
 > 管理员账号（仅供测试阶段展示功能）：felix / 12345678
 
 
@@ -77,7 +77,7 @@
 - 为防止接口被恶意调用，设计 **API 签名认证算法**，为用户分配唯一 ak / sk 以鉴权，保障调用的安全性、可溯源性
 - 为解决开发者调用成本过高的问题，基于 Spring Boot Starter 开发了**客户端 SDK**，一行代码 即可调用接口，提高开发体验
 - 选用 Spring Cloud Gateway 作为 **API 网关**，实现了路由转发、访问控制、流量染色，并集中处理签名校验、请求参数校验、接口调用统计等业务逻辑，提高安全性的同时、便于系统开发维护
-- 自定义 Spring Cloud gateway 错误处理Handler，并统一 API 网关异常处理，提高了系统的可维护性和用户体验性。
+- 自定义 Spring Cloud Gateway 错误处理Handler，并统一 API 网关异常处理，提高了系统的可维护性和用户体验性
 - 为解决多个子系统内代码大量重复的问题，抽象模型层和业务层代码为公共模块，并使用 Dubbo RPC 框架实现子系统间的**高性能接口调用**，大幅减少重复代码
 
 
