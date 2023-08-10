@@ -5,7 +5,7 @@
 </div>
 <p align="center">
   <a target="_blank" href="http://123.60.212.37/profile">
-    <img  src="https://pic.imgdb.cn/item/64d368ae1ddac507cc037d23.png">
+    <img  src="./img/cover.jpg">
   </a>
 </p>
 
@@ -16,31 +16,31 @@
 
 - 接口商店
 
-[![](https://pic.imgdb.cn/item/64d369eb1ddac507cc064453.png)](https://ant.design)
+![](./img/store.jpg)
 
 - 个人接口
 
-![](https://pic.imgdb.cn/item/64d36b3d1ddac507cc0905a5.png)
+![](./img/my-interface.jpg)
 
 - 接口调用
 
-![](https://pic.imgdb.cn/item/64d36d411ddac507cc0d3cff.png)
+![](./img/test-interface1.jpg)
 
-![](https://pic.imgdb.cn/item/64d36d571ddac507cc0d7033.png)
+![](./img/test-interface2.jpg)
 
 - 接口管理
 
-![](https://pic.imgdb.cn/item/64d36c1c1ddac507cc0ae401.png)
+![](./img/manage-interface.jpg)
 
-![](https://pic.imgdb.cn/item/64d36c4e1ddac507cc0b4c4b.png)
+![](./img/manage-detail.jpg)
 
 - 接口数据统计分析
 
-![](https://pic.imgdb.cn/item/64d36c931ddac507cc0bd663.png)
+![](./img/analysis.jpg)
 
 - 个人主页
 
-![](https://pic.imgdb.cn/item/64d36d0f1ddac507cc0cd4fe.png)
+![](./img/user-detail.jpg)
 
 
 
@@ -148,6 +148,6 @@ npm run dev
 
 #### ⚙️后端：
 
-配置本地mysql、redis、nacos、dubbo后，使用maven工具对api-common模块和api-client-sdk模块进行install，然后依次启动api-interface、api-admin和api-gateway模块。
+配置本地mysql、redis、nacos、dubbo后，使用maven工具对api-common模块和api-client-sdk模块进行install，然后依次运行api-interface、api-admin和api-gateway模块。
 
-💡 部分敏感信息已脱敏处理，需自行配置后才能启动
+💡 部分敏感信息已脱敏处理，需自行配置后才能运行
