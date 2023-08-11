@@ -9,6 +9,7 @@ import cn.felix.apicommon.service.InnerUserInterfaceInfoService;
 import cn.felix.apicommon.service.InnerUserService;
 import cn.felix.apigateway.exception.BusinessException;
 import cn.felix.clientsdk.utils.SignUtils;
+import cn.hutool.json.JSONUtil;
 import jodd.util.StringUtil;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -79,7 +80,7 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         log.info("请求路径：{}", path);
         log.info("请求参数：{}", request.getQueryParams());
         log.info("请求来源地址：{}", IP_ADDRESS);
-        log.info("请求来源地址：{}", request.getRemoteAddress());
+        log.info("请求目标地址：{}", request.getRemoteAddress());
 
         ServerHttpResponse response = exchange.getResponse();
 
@@ -96,7 +97,7 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         String method = headers.getFirst("method");
         String body = null;
         try {
-                body = URLDecoder.decode(headers.getFirst("body"),"utf-8");
+            body = URLDecoder.decode(headers.getFirst("body"), "utf-8");
         } catch (UnsupportedEncodingException e) {
             throw new BusinessException(ErrorCode.FORBIDDEN_ERROR, "参数转换错误！");
         }
@@ -106,7 +107,7 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         if ("GET".equals(method)) {
             //3.2.1 如果是GET请求，直接从请求头中获取参数
             requestParamStr = body;
-        }else {
+        } else {
             //3.2.2 如果是POST请求，从请求体中获取json数据
             AtomicReference<String> requestBody = new AtomicReference<>("");
             RecorderServerHttpRequestDecorator requestDecorator = new RecorderServerHttpRequestDecorator(request);
@@ -118,6 +119,9 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
             //获取body参数
 //            JSONObject requestParams = JSONObject.parseObject(requestBody.get());
             requestParamStr = requestBody.get();
+            if (StringUtil.isNotBlank(requestParamStr) && !JSONUtil.isTypeJSON(requestParamStr)) {
+                throw new BusinessException(ErrorCode.FORBIDDEN_ERROR, "在线调用仅支持json参数");
+            }
         }
 
         if (StringUtil.isEmpty(nonce)
@@ -149,7 +153,6 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         if (!sign.equals(serverSign)) {
             throw new BusinessException(ErrorCode.FORBIDDEN_ERROR, "签名错误！");
         }
-
         // 4. 请求的模拟接口是否存在？
         // 从数据库中查询接口是否存在，以及方法是否匹配（还有请求参数是否正确）
         InterfaceInfo interfaceInfo = null;
@@ -280,7 +283,7 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
             //加锁
             String lock = String.valueOf(interfaceInfoId + ":" + userId).intern();
             RLock rLock = redissonClient.getLock(lock);
-            if (rLock.tryLock()){
+            if (rLock.tryLock()) {
                 try {
                     String nonce = request.getHeaders().getFirst("nonce");
                     if (StringUtil.isEmpty(nonce)) {
@@ -299,7 +302,7 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
                     }
                     redisTemplate.opsForValue().set(nonce, 1, 5, TimeUnit.MINUTES);
                     innerUserInterfaceInfoService.invokeCount(interfaceInfoId, userId);
-                }finally {
+                } finally {
                     rLock.unlock();
                 }
             }

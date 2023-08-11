@@ -199,6 +199,7 @@ public class InterfaceInfoController {
         // 判断是否可以调用
         String requestParams = interfaceInfoInvokeRequest.getRequestParams();
         // 接口请求地址
+        String host = oldInterfaceInfo.getHost();
         String url = oldInterfaceInfo.getUrl();
         String method = oldInterfaceInfo.getMethod();
         // 获取SDK客户端
@@ -207,9 +208,12 @@ public class InterfaceInfoController {
         apiClient.setGatewayHost(gatewayConfig.getHost());
         try {
             // 执行方法
-            String invokeResult = apiClient.invokeInterface(requestParams, url, method);
+            String invokeResult = apiClient.invokeInterface(host,requestParams, url, method);
             if (StringUtils.isBlank(invokeResult)) {
                 throw new BusinessException(ErrorCode.SYSTEM_ERROR, "接口数据为空");
+            }
+            if (invokeResult.startsWith("<html><body><h1>Whitelabel Error Page")){
+                throw new BusinessException(ErrorCode.SYSTEM_ERROR,"接口数据异常");
             }
         } catch (Exception e) {
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "接口验证失败");
@@ -268,6 +272,7 @@ public class InterfaceInfoController {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "接口已关闭");
         }
         // 接口请求地址
+        String host = oldInterfaceInfo.getHost();
         String url = oldInterfaceInfo.getUrl();
         String method = oldInterfaceInfo.getMethod();
         String requestParams = interfaceInfoInvokeRequest.getRequestParams();
@@ -278,13 +283,16 @@ public class InterfaceInfoController {
         String invokeResult = null;
         try {
             // 执行方法
-            invokeResult = apiClient.invokeInterface(requestParams, url, method);
+            invokeResult = apiClient.invokeInterface(host,requestParams, url, method);
         } catch (Exception e) {
-            e.printStackTrace();
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "接口验证失败");
         }
+        //验证接口返回结果
         if (StringUtils.isBlank(invokeResult)) {
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "接口数据为空");
+        }
+        if (invokeResult.startsWith("<html><body><h1>Whitelabel Error Page")){
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR,"接口数据异常");
         }
         return ResultUtils.success(invokeResult);
     }

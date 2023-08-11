@@ -36,31 +36,33 @@ public class ApiClient {
     }
 
 
-    private Map<String, String> getHeaderMap(String body, String method) throws UnsupportedEncodingException {
+    private Map<String, String> getHeaderMap(String host,String url,String body, String method) throws UnsupportedEncodingException {
         HashMap<String, String> map = new HashMap<>();
         map.put("accessKey", accessKey);
         String nonce = RandomUtil.randomNumbers(10);
         map.put("nonce", nonce);
         String timestamp = String.valueOf(System.currentTimeMillis() / 1000);
         map.put("timestamp", timestamp);
-        map.put("sign", getSign(secretKey,nonce,timestamp,body));
+        map.put("sign", getSign(secretKey, nonce, timestamp, body));
         map.put("method", method);
-        map.put("body",method.equals("GET") ? URLEncoder.encode(body,"utf-8") : "");
+        map.put("remote-host", host);
+        map.put("url", url);
+        map.put("body", method.equals("GET") ? URLEncoder.encode(body, "utf-8") : "");
         return map;
     }
 
-    public String invokeInterface(String params, String url, String method) throws UnsupportedEncodingException {
+    public String invokeInterface(String host, String params, String url, String method) throws UnsupportedEncodingException {
         HttpResponse httpResponse = null;
-        if ("GET".equals(method)){
+        if ("GET".equals(method)) {
             httpResponse = HttpRequest.get(GATEWAY_HOST + url)
-                            .header("Accept-Charset", CharsetUtil.UTF_8)
-                            .addHeaders(getHeaderMap(params,method))
-                            .execute();
+                    .header("Accept-Charset", CharsetUtil.UTF_8)
+                    .addHeaders(getHeaderMap(host,url,params, method))
+                    .execute();
 
-        }else {
+        } else {
             httpResponse = HttpRequest.post(GATEWAY_HOST + url)
                     .header("Accept-Charset", CharsetUtil.UTF_8)
-                    .addHeaders(getHeaderMap(params, method))
+                    .addHeaders(getHeaderMap(host,url,params, method))
                     .body(params)
                     .execute();
         }
