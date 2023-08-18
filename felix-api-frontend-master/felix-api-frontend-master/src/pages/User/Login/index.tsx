@@ -59,7 +59,7 @@ const Login: React.FC = () => {
                     loginUser: res.data,
                 });
             } else {
-                message.error(res.message);
+                //message.error(res.message);
             }
         }
     };
@@ -76,7 +76,7 @@ const Login: React.FC = () => {
                     backgroundImageUrl={dragonBackImg}
                     logo={logo}
                     title="Dragon API"
-                    subTitle="史上最好用的免费API接口平台"
+                    subTitle="一个便捷丰富的API开放调用平台"
                     initialValues={{
                         autoLogin: true,
                     }}

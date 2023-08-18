@@ -97,7 +97,7 @@ const Index: React.FC = () => {
                 message.error(messageObj.message);
             }
         } catch (error: any) {
-            message.error('接口请求失败');
+            //message.error('接口请求失败');
         }
         setInvokeLoading(false);
     };
@@ -115,7 +115,7 @@ const Index: React.FC = () => {
                                 <Badge status="default" text={'关闭'} />
                             )}
                         </Descriptions.Item>
-                        <Descriptions.Item label="主机名">{data.host}</Descriptions.Item>
+                        <Descriptions.Item label="主机名">http://123.60.212.37/dragon_api</Descriptions.Item>
                         <Descriptions.Item label="请求地址">{data.url}</Descriptions.Item>
                         <Descriptions.Item label="请求方法">{data.method}</Descriptions.Item>
                         <Descriptions.Item label="请求参数示例" span={4}>
