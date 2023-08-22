@@ -39,6 +39,8 @@
         <easyexcel.version>3.1.1</easyexcel.version>
         <hutool-all.version>5.8.8</hutool-all.version>
         <gateway.version>3.1.7</gateway.version>
+        <spring-cloud-nacos.version>2021.1</spring-cloud-nacos.version>
+        <spring-cloud-loadbalancer.version>3.1.1</spring-cloud-loadbalancer.version>
     </properties>
 
     <dependencyManagement>
@@ -76,6 +78,18 @@
                 <groupId>cn.felix</groupId>
                 <artifactId>api-common</artifactId>
                 <version>${api.version}</version>
+            </dependency>
+            <!--spring cloud nacos-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>${spring-cloud-nacos.version}</version>
+            </dependency>
+            <!--Alibaba在2021版本nacos中删除了的Ribbon的jar包-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-loadbalancer</artifactId>
+                <version>${spring-cloud-loadbalancer.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

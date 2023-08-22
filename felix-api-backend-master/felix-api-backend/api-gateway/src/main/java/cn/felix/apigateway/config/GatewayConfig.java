@@ -18,8 +18,8 @@ public class GatewayConfig {
                 .route(r ->
                         r.path("/dragon_api/**")
                                 .filters(f -> f.filter(filter))
-                                //.uri("lb://api-interface")
-                                .uri("http://localhost:8123")
+                                .uri("lb://dragonapi-interface")
+                                //.uri("http://localhost:8123")
                 )
                 .build();
     }

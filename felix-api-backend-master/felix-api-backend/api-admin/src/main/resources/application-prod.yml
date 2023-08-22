@@ -1,0 +1,37 @@
+spring:
+  nacos:
+    discovery:
+      server-addr:
+  # 数据库配置
+  # todo 需替换配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url:
+    username:
+    password:
+  # Redis 配置
+  # todo 需替换配置
+  redis:
+    database: 1
+    host:
+    port:
+    timeout: 5000
+    password:
+mybatis-plus:
+  configuration:
+    # 生产环境关闭日志
+    log-impl: ''
+
+felix:
+  gateway:
+    host:
+
+dubbo:
+  application:
+    name: felix-api-admin-provider
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    id: nacos-registry
+    address:

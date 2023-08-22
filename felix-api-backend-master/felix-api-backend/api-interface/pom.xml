@@ -25,6 +25,17 @@
             <groupId>cn.felix</groupId>
             <artifactId>api-common</artifactId>
         </dependency>
+        <!--spring cloud nacos-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <!--Alibaba在2021版本nacos中删除了的Ribbon的jar包-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-loadbalancer</artifactId>
+        </dependency>
+
         <!-- SpringBoot Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

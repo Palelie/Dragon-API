@@ -14,15 +14,15 @@ const Footer: React.FC = () => {
             copyright={`${currentYear} ${defaultMessage}`}
             links={[
                 {
-                    key: 'Ant Design Pro',
+                    key: 'Dragon API',
                     title: 'Dragon API',
-                    href: 'http://localhost:8000',
+                    href: 'http://123.60.212.37/',
                     blankTarget: true,
                 },
                 {
                     key: 'github',
                     title: <GithubOutlined />,
-                    href: 'https://github.com/Palelie/',
+                    href: 'https://github.com/Palelie/Dragon-API',
                     blankTarget: true,
                 },
                 {

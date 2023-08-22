@@ -6,9 +6,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * 全局跨域配置
+ * (更新后已在网关处设置了跨域配置，无需在子服务再次配置)
  *
  */
-@Configuration
+//@Configuration
 public class CorsConfig implements WebMvcConfigurer {
 
     @Override

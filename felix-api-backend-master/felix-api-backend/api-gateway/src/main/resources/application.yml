@@ -1,0 +1,63 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: dragonapi-gateway
+  cloud:
+    gateway:
+      # 网关跨域配置
+      discovery:
+        locator:
+          enabled: true
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            # 允许携带认证信息
+            allow-credentials: true
+            # 允许跨域的源(网站域名/ip)，设置*为全部
+            allowedOriginPatterns: "*"
+            # 允许跨域的method， 默认为GET和OPTIONS，设置*为全部
+            allowedMethods: "*"
+            # 允许跨域请求里的head字段，设置*为全部
+            allowedHeaders: "*"
+      #网关路由配置
+      routes:
+        - id: admin_route
+          uri: lb://dragonapi-backend
+          predicates:
+            - Path=/**
+#      routes:
+#        - id: path_route
+#          uri: http://localhost:8123
+#          predicates:
+#            - Path=/interface/**
+# 添加自定义请求头（用于流量染色）
+#      default-filters:
+#        - AddRequestHeader=X-Dye-Data,felix
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  redis:
+    host: localhost
+    port: 6379
+    database: 1
+
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: trace
+dubbo:
+  application:
+    name: felix-api-admin-consumer
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    id: nacos-registry
+    address: nacos://localhost:8848
+
+

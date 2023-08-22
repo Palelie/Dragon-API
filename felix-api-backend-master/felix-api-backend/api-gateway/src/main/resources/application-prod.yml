@@ -1,0 +1,27 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr:
+  redis:
+    host:
+    port: 6379
+    database:
+    password:
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: debug
+dubbo:
+  application:
+    name: felix-api-admin-consumer
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    id: nacos-registry
+    address:
+
