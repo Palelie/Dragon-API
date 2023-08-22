@@ -54,13 +54,13 @@ public class ApiClient {
     public String invokeInterface(String host, String params, String url, String method) throws UnsupportedEncodingException {
         HttpResponse httpResponse = null;
         if ("GET".equals(method)) {
-            httpResponse = HttpRequest.get(GATEWAY_HOST + url)
+            httpResponse = HttpRequest.get(GATEWAY_HOST + "/dragon_api" + url)
                     .header("Accept-Charset", CharsetUtil.UTF_8)
                     .addHeaders(getHeaderMap(host,url,params, method))
                     .execute();
 
         } else {
-            httpResponse = HttpRequest.post(GATEWAY_HOST + url)
+            httpResponse = HttpRequest.post(GATEWAY_HOST + "/interface" + url)
                     .header("Accept-Charset", CharsetUtil.UTF_8)
                     .addHeaders(getHeaderMap(host,url,params, method))
                     .body(params)
