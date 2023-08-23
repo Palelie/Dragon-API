@@ -1,4 +1,7 @@
 <h1 align="center">Dragon API</h1>
+<h5 align="center">
+        一个便捷丰富的API开放调用平台
+</h5>
 <div align="center">
     （点击下图封面即可跳转到在线平台）
 </div>
@@ -7,6 +10,7 @@
     <img  src="./img/cover.jpg">
   </a>
 </p>
+
 
 > 管理员账号（仅供测试阶段展示功能）：felix / 12345678
 
@@ -67,18 +71,24 @@
 - Dubbo 分布式（RPC、Nacos）
 - Swagger + Knife4j 接口文档生成
 - Spring Cloud Gateway 微服务网关
+- Sentinel 微服务保护
+- Seata 分布式事务
 - Hutool、Apache Common Utils、Gson 等工具库
 
 
 
 ## ✨ 特性
 
-- 根据业务流程，将整个项目后端划分为 web 系统、模拟接口、公共模块、客户端 SDK、API 网关这 5 个子项目，并使用 Maven 进行**多模块依赖管理**和打包
+- 根据业务流程，将整个项目后端划分为 web 系统、模拟接口、公共模块、客户端 SDK、API 网关这 5 个子项目，并构建为微服务项目，使用 Maven 进行**多模块依赖管理**和打包
 - 为防止接口被恶意调用，设计 **API 签名认证算法**，为用户分配唯一 ak / sk 以鉴权，保障调用的安全性、可溯源性
+
 - 为解决开发者调用成本过高的问题，基于 Spring Boot Starter 开发了**客户端 SDK**，一行代码 即可调用接口，提高开发体验
 - 选用 Spring Cloud Gateway 作为 **API 网关**，实现了路由转发、访问控制、流量染色，并集中处理签名校验、请求参数校验、接口调用统计等业务逻辑，提高安全性的同时、便于系统开发维护
-- 自定义 Spring Cloud Gateway 错误处理Handler，并统一 API 网关异常处理，提高了系统的可维护性和用户体验性
+- 自定义 Spring Cloud gateway 错误处理Handler，并统一 API 网关异常处理，提高了系统的可维护性和用户体验性。
 - 为解决多个子系统内代码大量重复的问题，抽象模型层和业务层代码为公共模块，并使用 Dubbo RPC 框架实现子系统间的**高性能接口调用**，大幅减少重复代码
+- 对服务进行压测后根据负载结果使用 Sentinel 对接口调用服务进行**流量控制**，并对响应缓慢和异常的接口进行**熔断和降级**
+
+- 使用 **Seata** 实现**分布式事务管理**，以确保接口调用过程中用户调用记录、接口调用统计等服务的数据一致性
 
 
 
@@ -148,6 +158,6 @@ npm run dev
 
 #### ⚙️后端：
 
-配置本地mysql、redis、nacos、dubbo后，使用maven工具对api-common模块和api-client-sdk模块进行install，然后依次运行api-interface、api-admin和api-gateway模块。
+配置本地mysql、redis、nacos、dubbo、sentinel、seata后修改 application.yml 文件，使用maven工具对api-common模块和api-client-sdk模块进行install，然后依次运行api-interface、api-admin和api-gateway模块。
 
 💡 部分敏感信息已脱敏处理，需自行配置后才能运行
