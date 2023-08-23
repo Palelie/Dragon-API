@@ -31,7 +31,6 @@ public class DragonApiController {
     public String invokeGetAPI(HttpServletRequest request) {
         String host = request.getHeader("remote-host");
         String url = request.getHeader("url");
-
         String body = URLUtil.decode(request.getHeader("body"), CharsetUtil.CHARSET_UTF_8);
         HttpResponse httpResponse = HttpRequest.get(host + url + "?" + body)
                 .execute();

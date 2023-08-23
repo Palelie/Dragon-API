@@ -2,12 +2,28 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr:
+        server-addr: 123.60.212.37:8848
   redis:
-    host:
+    host: 123.60.212.37
     port: 6379
     database:
     password:
+
+seata:
+  registry: # TC服务注册中心的配置，微服务根据这些信息去注册中心获取tc服务地址
+    type: nacos # 注册中心类型 nacos
+    nacos:
+      server-addr: 123.60.212.37:8848 # nacos地址
+      namespace: "" # namespace，默认为空
+      group:  # 分组，默认是DEFAULT_GROUP
+      application:  # seata服务名称
+      username:
+      password:
+  tx-service-group:  # 事务组名称
+  service:
+    vgroup-mapping: # 事务组与cluster的映射关系
+      seata-demo:
+  data-source-proxy-mode: AT # 默认就是AT
 
 logging:
   level:
@@ -23,5 +39,5 @@ dubbo:
     port: -1
   registry:
     id: nacos-registry
-    address:
-
+    address: nacos://123.60.212.37:8848
+    # address: nacos://172.17.0.2:8848

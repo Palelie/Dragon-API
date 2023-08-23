@@ -60,7 +60,7 @@ public class ApiClient {
                     .execute();
 
         } else {
-            httpResponse = HttpRequest.post(GATEWAY_HOST + "/interface" + url)
+            httpResponse = HttpRequest.post(GATEWAY_HOST + "/dragon_api" + url)
                     .header("Accept-Charset", CharsetUtil.UTF_8)
                     .addHeaders(getHeaderMap(host,url,params, method))
                     .body(params)

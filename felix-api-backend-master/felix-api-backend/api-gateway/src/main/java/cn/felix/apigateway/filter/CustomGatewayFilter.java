@@ -10,6 +10,7 @@ import cn.felix.apicommon.service.InnerUserService;
 import cn.felix.apigateway.exception.BusinessException;
 import cn.felix.clientsdk.utils.SignUtils;
 import cn.hutool.json.JSONUtil;
+import io.seata.spring.annotation.GlobalTransactional;
 import jodd.util.StringUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
@@ -51,6 +52,7 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 @Component
 @Slf4j
+@GlobalTransactional
 public class CustomGatewayFilter implements GatewayFilter,Ordered {
 
     public static final List<String> IP_WHITE_LIST = Collections.singletonList("127.0.0.1");

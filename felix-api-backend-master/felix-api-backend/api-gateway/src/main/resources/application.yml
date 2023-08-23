@@ -27,14 +27,14 @@ spring:
           uri: lb://dragonapi-backend
           predicates:
             - Path=/**
-#      routes:
-#        - id: path_route
-#          uri: http://localhost:8123
-#          predicates:
-#            - Path=/interface/**
-# 添加自定义请求头（用于流量染色）
-#      default-filters:
-#        - AddRequestHeader=X-Dye-Data,felix
+    #      routes:
+    #        - id: path_route
+    #          uri: http://localhost:8123
+    #          predicates:
+    #            - Path=/interface/**
+    # 添加自定义请求头（用于流量染色）
+    #      default-filters:
+    #        - AddRequestHeader=X-Dye-Data,felix
     nacos:
       discovery:
         server-addr: localhost:8848
@@ -42,6 +42,24 @@ spring:
     host: localhost
     port: 6379
     database: 1
+  main:
+    allow-circular-references: true
+
+seata:
+  registry: # TC服务注册中心的配置，微服务根据这些信息去注册中心获取tc服务地址
+    type: nacos # 注册中心类型 nacos
+    nacos:
+      server-addr: 127.0.0.1:8848 # nacos地址
+      namespace: "" # namespace，默认为空
+      group: DEFAULT_GROUP # 分组，默认是DEFAULT_GROUP
+      application: seata-tc-server # seata服务名称
+      username: nacos
+      password: nacos
+  tx-service-group: seata-demo # 事务组名称
+  service:
+    vgroup-mapping: # 事务组与cluster的映射关系
+      seata-demo: GZ
+  data-source-proxy-mode: AT # 默认就是AT
 
 
 logging:

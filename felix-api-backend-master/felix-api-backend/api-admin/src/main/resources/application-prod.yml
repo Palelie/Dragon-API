@@ -1,7 +1,11 @@
 spring:
-  nacos:
-    discovery:
-      server-addr:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 123.60.212.37:8848
+    sentinel:
+      transport:
+        dashboard: 123.60.212.37:8080
   # 数据库配置
   # todo 需替换配置
   datasource:
@@ -13,8 +17,8 @@ spring:
   # todo 需替换配置
   redis:
     database: 1
-    host:
-    port:
+    host: 123.60.212.37
+    port: 6379
     timeout: 5000
     password:
 mybatis-plus:
@@ -22,9 +26,26 @@ mybatis-plus:
     # 生产环境关闭日志
     log-impl: ''
 
+seata:
+  registry: # TC服务注册中心的配置，微服务根据这些信息去注册中心获取tc服务地址
+    type: nacos # 注册中心类型 nacos
+    nacos:
+      server-addr: 123.60.212.37:8848 # nacos地址
+      namespace: "" # namespace，默认为空
+      group:  # 分组，默认是DEFAULT_GROUP
+      application:  # seata服务名称
+      username:
+      password:
+  tx-service-group: # 事务组名称
+  service:
+    vgroup-mapping: # 事务组与cluster的映射关系
+      seata-demo:
+  data-source-proxy-mode: AT # 默认就是AT
+
 felix:
   gateway:
-    host:
+    # host: http://localhost:8090
+    host: http://123.60.212.37:8090
 
 dubbo:
   application:
@@ -34,4 +55,4 @@ dubbo:
     port: -1
   registry:
     id: nacos-registry
-    address:
+    address: nacos://123.60.212.37:8848

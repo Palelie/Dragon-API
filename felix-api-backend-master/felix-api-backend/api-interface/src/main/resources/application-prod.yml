@@ -2,4 +2,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr:
+        server-addr: 123.60.212.37:8848
+    sentinel:
+      transport:
+        dashboard: 123.60.212.37:8080

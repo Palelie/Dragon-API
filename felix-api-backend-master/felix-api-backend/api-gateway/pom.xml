@@ -26,6 +26,11 @@
             <groupId>cn.felix</groupId>
             <artifactId>api-common</artifactId>
         </dependency>
+        <!--seata-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+        </dependency>
 
         <!--引入Redis-->
         <dependency>
